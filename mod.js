@@ -32,7 +32,13 @@ function handleRequest(request) {
   }
 
   return new Response(
-    `<body
+    ` <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello Deno!</title>
+  </head>
+    <body
       align="center"
       style="font-family: Avenir, Helvetica, Arial, sans-serif; font-size: 1.5rem;"
     >
@@ -43,7 +49,8 @@ function handleRequest(request) {
       <p>
         <a href="/json">/json</a> - responds with JSON to the request.
       </p>
-    </body>`,
+    </body>
+</html>`,
     {
       headers: {
         "content-type": "text/html; charset=UTF-8",
