@@ -73,11 +73,6 @@ function handleRequest(request) {
   );
 }
 
-addEventListener("fetch", (event) => {
-  event.respondWith(handleRequest(event.request));
-});
-
-
 async function getAllQuotes() {
   const query = `
     query {
@@ -102,3 +97,8 @@ async function getAllQuotes() {
 
   return { quotes };
 }
+
+
+addEventListener("fetch", (event) => {
+  event.respondWith(handleRequest(event.request));
+});
