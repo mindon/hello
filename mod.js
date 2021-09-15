@@ -1,3 +1,5 @@
+import {queryFauna} from 'quotes.ts';
+
 async function handleRequest(request) {
   const { pathname } = new URL(request.url);
 
