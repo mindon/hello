@@ -1,4 +1,4 @@
-function handleRequest(request) {
+async function handleRequest(request) {
   const { pathname } = new URL(request.url);
 
   if (pathname.startsWith("/html")) {
