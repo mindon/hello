@@ -30,6 +30,20 @@ function handleRequest(request) {
       },
     });
   }
+  
+  if (pathname.startsWith('/quotes')) {
+    const {quotes, error} = await getAllQuotes();
+    const result = JSON.stringify({
+      quotes,
+      error
+    });
+
+    return new Response(result, {
+      headers: {
+        "content-type": "application/json; charset=UTF-8",
+      },
+    });    
+  }
 
   return new Response(
     ` <!DOCTYPE html>
@@ -62,3 +76,29 @@ function handleRequest(request) {
 addEventListener("fetch", (event) => {
   event.respondWith(handleRequest(event.request));
 });
+
+
+async function getAllQuotes() {
+  const query = `
+    query {
+      allQuotes {
+        data {
+          quote
+          author
+        }
+      }
+    }
+  `;
+
+  const {
+    data: {
+      allQuotes: { data: quotes },
+    },
+    error,
+  } = await queryFauna(query, {});
+  if (error) {
+    return { error };
+  }
+
+  return { quotes };
+}
