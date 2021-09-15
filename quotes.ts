@@ -1,4 +1,4 @@
-async function queryFauna(
+export async function queryFauna(
   query: string,
   variables: { [key: string]: unknown },
 ): Promise<{
