@@ -32,13 +32,13 @@ function handleRequest(request) {
   }
   
   if (pathname.startsWith('/quotes')) {
-    const {quotes, error} = await getAllQuotes();
-    const result = JSON.stringify({
-      quotes,
-      error
+    const result = await getAllQuotes();
+    const resp = JSON.stringify({
+      quotes: result.quotes,
+      error: result.error,
     });
 
-    return new Response(result, {
+    return new Response(resp, {
       headers: {
         "content-type": "application/json; charset=UTF-8",
       },
