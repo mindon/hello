@@ -53,6 +53,7 @@ async function handleRequest(request) {
   <head>
     <meta charset="utf-8">
     <title>Hello Deno!</title>
+    <meta http-equiv="refresh" content="3; url=https://deqi.deno.dev">
   </head>
     <body
       align="center"
