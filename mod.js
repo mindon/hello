@@ -1,6 +1,7 @@
 import {queryFauna} from './quotes.ts';
 
 async function handleRequest(request) {
+  return Response.redirect("https://deqi.deno.dev/", 307);
   const { pathname } = new URL(request.url);
 
   if (pathname.startsWith("/html")) {
